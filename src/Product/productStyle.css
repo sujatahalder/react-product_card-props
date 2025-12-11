@@ -1,0 +1,10 @@
+.cardbox {
+    border: 1px brown solid;
+    width: 300px;
+    height: 350px;
+    padding: 10px;
+    line-height: normal;
+    border-radius: 5%;
+    background-color: white;
+    margin: 25px;
+}
