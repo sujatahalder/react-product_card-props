@@ -1,45 +1,32 @@
-import React from 'react'
-import ProductDetails from './Product/ProductDetails'
-import './App.css'
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-//passing multiple objects as props an show them in the cardbox
+import Navbar from "./Components/Navbar";
+import Home from "./Components/pages/Home";
+import About from "./Components/pages/About";
+import Service from "./Components/pages/Service";
+import Contact from "./Components/pages/Contact";
+import UserList from "./Users/User_List";
+import NotFound from "./Components/pages/NotFound";
+import Test from "./Components/pages/Test";
 
 const App = () => {
-
-  const products = [
-     {
-     name :"T-Shirt" ,
-     price :"499" ,
-     color :"Red" ,
-     size :"M" ,
-     details :"100% Cotton"
-  },
-  {
-    name :"item 2",
-    price :"300",
-    size :"medium",
-    color :"blue",
-    details :"100 % cotton"
-
-  },
-    {
-    name : "Shoes",
-    price : "1299",
-    color : "White",
-    size : "8",
-    details : "Sports Wear"
-  }
-];
   return (
-    <>
-      <h1 className='headerText'>Product Details:- </h1>
-      <div className='row'>
-        {products.map((item, index) => (
-          <ProductDetails key={index} data={item} />
-        ))}
+    <BrowserRouter>
+      <Navbar />
+      <div className="container text-center mt-5">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
-    </>
-  )
-}
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
